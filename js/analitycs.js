@@ -3,9 +3,7 @@
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-var pluginUrl =
- '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+var pluginUrl ='//www.google-analytics.com/plugins/ga/inpage_linkid.js';
 
 ga('create', 'UA-62484131-1', 'auto');
 ga('require', 'linkid', 'linkid.js');
