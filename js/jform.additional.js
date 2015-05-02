@@ -9,6 +9,6 @@
 
 function myFunction(element){
 	console.log(element);
-	return false;
+	return false || true;
 }
 
