@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="INDEX, FOLLOW">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>jformValidate.js - Simple javascript plugin for form validation, only with writing html</title>
+
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://christianfortes.github.io/jformvalidate">
+  <meta property="og:site_name" content="jformValidate.js">
+  <meta property="og:title" content="jformValidate.js - Simple javascript plugin for form validation, only with writing html">
+  <meta property="og:description" content="This plugin was developed considering existing complex plugins market, whenever we need to validate forms on the client-side, we face no plugins, but which in fact we choose?">
+  <meta property="og:image" content="https://christianfortes.github.io/jformvalidate/images/fb-logo.png">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="123">
+  <meta property="og:image:height" content="103">
+  <meta property="og:type" content="website">
+
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <link type="text/css" rel="stylesheet" href="../css/monokai_sublime.css"/>
+
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="css/ie.css">
+    <![endif]-->
+
+  </head>
+  <body>
+  <a href="https://github.com/christianfortes/jformvalidate"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+  
+    <div class="wrapper">
+        
+    <ul class="lang">
+        <li><a href="/jformvalidate/pt">Português</a></li>
+        <li><a href="/jformvalidate/en" class="active">English</a></li>
+    </ul>
+
+      <section>
+        <div id="title">
+          <img src="../images/logo.png" height="80" width="96" alt="jformValidate.js Javascript Plugin"/>
+          <div>
+            <h1>jformValidate.js</h1>
+            <p>Simple validation forms</p>
+          </div>
+        </div>
+
+        <div class="link-top">
+          <a href="//github.com/christianfortes/jformvalidate/archive/master.zip" onclick="_gaq.push(['_trackEvent', 'Biblioteca', 'Download', 'Download no topo']);">Download ZIP</a>
+        </div>
+
+        <div style="clear:both;"></div>
+        <hr />
+        
+        <h3>jformValidate.js v1.0</h3>
+        <p>
+          This plugin was developed considering existing complex libraries in the market , whenever we need to validate forms on the client-side , we face no plugins, but which in fact we choose?
+        </p>
+
+        <p>
+        	Thinking that way and losing a lot of time implementing validation in forms, I decided to write my own plugin, behold, the jformValidate.js , comes with it is possible to place and remove validations of forms very simple , and you can also disable just changing a value , without the need to write javascript .
+        </p>
+
+        <p>
+        	Using jformValidate.js library is also possible to add new types of custom validations, or if you prefer you can use those already implemented by default , download and implement in their application and rate.
+        </p>
+
+        <br />
+
+        <h3>Dependencies</h3>
+        <p>
+          The jformValidate.js plugin was developed based on the jQuery library , with the minimum requirement version 1.7 , if you do not have it in your project , visit the official site and download now on <a href="http://jquery.com/" target="_BLANK" onclick="_gaq.push(['_trackEvent', 'Biblioteca', 'Download', 'Acesso ao jQuery']);">jQuery.com</a>
+        </p>
+	
+		<br />
+
+        <h3>Installation</h3>
+
+        <p>
+        	To install the jformValidate.js library, download and add before closing the body of your html, if you want, the package is available at<strong> bower </strong>, or click the download link on top of the site.
+        </p>
+
+        <pre>
+            <code class="bash">
+bower install jformvalidate
+            </code>
+        </pre>
+        
+        <h3>Implementation</h3>
+
+        <pre>
+            <code class="html">
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+	&lt;head>
+		&lt;meta charset="UTF-8">
+		&lt;title>Design Example&lt;/title>
+	&lt;/head>
+
+	&lt;body>
+
+        &lt;!-- Body the code... --&gt;
+
+		&lt;script src="{{PATH}}/jform.validate-1.0.0.js">&lt;/script>
+        &lt;script>
+            // Initializing the library
+            jformApp.init();
+        &lt;/script>
+	&lt;/body>
+&lt;/html>
+            </code>
+        </pre>
+        
+        <h3>Configuration Parameters</h3>
+
+        <pre>
+            <code class="js">
+jformApp.init({
+    message: {
+        text: {
+            // Definition of messages to the verification method
+            empty: 'Field is required!',
+            cnpj: 'Enter a valid cnpj',
+            cpf: 'Enter a valid cpf',
+            email: 'Enter a valid email',
+            url: 'Please enter a valid url', 
+            cep: 'Enter a valid zipcode', 
+            minlength: 'You need a minimum of letters', 
+            number: 'Insert only decimal numbers', 
+            extension: 'Invalid extension', 
+            letters: 'Insert only letters'
+        },
+        style: {
+            // Class definition for the error message element.
+            this: {
+                // Sets the class name
+                name: 'jform-msg-error',
+                // Specifies that the name is a class
+                type: '.'
+            },
+
+            // Class definition for the element returned error
+            element: {
+                name: 'jform-elem-error',
+                type: '.'   
+            },
+
+            // Class definition for the form that contains errors.
+            form: {
+                name: 'jform-form-error',
+                type: '.' 
+            }
+        }
+    }
+});
+            </code>
+        </pre>
+
+        <p>
+            After making the call, please use it there through date attributes inserted in your html tags.
+        </p>
+
+        <br />
+
+        <h3>Ways to use the meta tags</h3>
+
+        <pre>
+            <code class="html">
+&lt;!-- Only allowed letters --&gt;
+&lt;input type="text" data-jform="letters" data-jform-message="Mensagem">
+
+&lt;!-- Only a valid zipcode format is allowed --&gt;
+&lt;input type="text" data-jform="cep" data-jform-message="Mensagem">
+
+&lt;!-- Only numbers are allowed --&gt;
+&lt;input type="text" data-jform="number" data-jform-message="Mensagem">
+
+&lt;!-- 
+It is only allowed the extensions specified in the data attribute option,
+separated by '|', for example: {{extensão}} | {{extensão}}
+--&gt;
+&lt;input type="file" data-jform="extension" data-jform-option="xls|csv" data-jform-message="Mensagem">
+
+&lt;!-- Only a valid URL format is allowed --&gt;
+&lt;input type="text" data-jform="url" data-jform-message="Mensagem">
+
+&lt;!-- Field select mandatory, and the value of different empty --&gt;
+&lt;select data-jform>
+    &lt;option value="">Select&lt;/option>
+    &lt;option value="01">test&lt;/option>
+&lt;/select>
+
+&lt;!-- It is mandatory to select an option --&gt;
+&lt;div data-jform="radio">
+    &lt;input type="radio" name="text" value="0">
+    &lt;input type="radio" name="text" value="1">
+    &lt;input type="radio" name="text" value="2">
+    &lt;input type="radio" name="text" value="3">
+    &lt;input type="radio" name="text" value="4">
+&lt;/div>
+
+&lt;!-- 
+When specifying the option field and a value is nescessário to be selected
+at least 2 options, if not declared the date option, by default will be a
+Required item
+--&gt;
+&lt;div data-jform="checkbox" data-jform-option="2">
+    &lt;input type="checkbox" name="vehicle" value="0">I have a bike
+    &lt;input type="checkbox" name="vehicle" value="1">I have a bike
+    &lt;input type="checkbox" name="vehicle" value="2">I have a bike
+    &lt;input type="checkbox" name="vehicle" value="3">I have a bike
+    &lt;input type="checkbox" name="vehicle" value="4">I have a bike
+    &lt;input type="checkbox" name="vehicle" value="5">I have a bike
+&lt;/div>
+
+&lt;!-- Only a valid email format is allowed --&gt;
+&lt;input type="text" data-jform="email" data-jform-message="Mensagem">
+
+&lt;!-- Only valid cnpj numeration is allowed --&gt;
+&lt;input type="text" data-jform="cnpj" data-jform-message="Mensagem">
+
+&lt;!-- Only valid cpf numeration is allowed --&gt;
+&lt;input type="text" data-jform="cpf" data-jform-message="Mensagem">
+
+&lt;!-- 
+By setting the date option you will be setting the minimum character
+to be entered 
+--&gt;
+&lt;input type="text" data-jform="minlength" data-jform-option="5" data-jform-message="Mensagem">
+
+&lt;!-- It can not be empty, mandatory field --&gt;
+&lt;input type="text" data-jform>
+
+&lt;!-- 
+At the end of your form, the submit button, you should tell submit date
+to specify the plugin that this form will go through the validation.
+
+In this attribute data, you have two options, true (Enable validations) or false (disables validations)
+if you want to test the sending of the form without having to be putting certain values ​​to pass validations
+--&gt;
+&lt;button type="submit" data-jform-submit="true">Register&lt;/button>
+            </code>
+        </pre>
+
+        <h3>Adding custom methods</h3>
+        
+        <p>
+            To this add the following script tag that you call the library, the <strong>jform.additional.js</strong>    
+        </p>
+        
+        <pre>
+            <code class="html">
+&lt;script src="{{PATH}}/jform.validate-1.0.0.js">&lt;/script>
+&lt;script src="{{PATH}}/jform.additional.js">&lt;/script>
+            </code>
+        </pre>
+
+        <p>
+            Then, within the file <strong>jform.additional.js</strong> you will create its function, she will receive a parameter which will in their element, it is starting that will be validated, at the end of your code this function must return true </strong> to pass validation or <strong>false</strong> to return error.
+        </p>
+
+        <pre>
+            <code class="js">
+function myFunction(element){
+    return false || true;
+}
+            </code>
+        </pre>
+        
+        <p>
+            Now just call in your html tag, as follows:
+        </p>
+
+        <pre>
+            <code class="html">
+&lt;!-- 
+By choosing to create a custom validation, you must specify a date function method
+which will have its validation without informing '( )', should only be placed the name
+--&gt;
+&lt;input type="text" data-jform="addmethod" data-jform-method="myFunction" data-jform-message="Mensagem">
+            </code>
+        </pre>
+        
+        <h3>Available methods</h3>
+        
+        <p>
+            If you want to use pre-defined methods in its custom validations, simply call in your function method.
+        </p>
+        
+        <pre>
+            <code class="js">
+// The field can not be empty
+jformApp.validate.empty(elemento);
+
+// The value entered must be a valid cnpj
+jformApp.validate.cnpj(elemento);
+
+// The value entered must be a valid cpf
+jformApp.validate.cpf(elemento);
+
+// The value entered must be a valid email address
+jformApp.validate.email(elemento);
+
+// The value entered must be a valid email address
+jformApp.validate.url(elemento);
+
+// The value entered must be a valid zipcode
+jformApp.validate.cep(elemento);
+
+// The value entered must be only numbers
+jformApp.validate.number(elemento);
+
+// The value should be informed only letters
+jformApp.validate.letters(elemento);
+            </code>
+        </pre>
+
+        <br />
+
+        <h3>See the demonstration of implementation</h3>
+
+        <p>
+            <a href="demo/index.html" target="_BLANK" onclick="_gaq.push(['_trackEvent', 'Biblioteca', 'Demonstração', 'Clique em demonstração do plugin']);">Click here</a> and see the plug- in operation.
+        </p>
+        
+        <br />
+
+        <h3>Support in browsers</h3>
+
+        <ul>
+          <li>Mozilla Firefox</li>
+          <li>Google Chrome</li>
+          <li>Apple Safari</li>
+          <li>Internet Explorer 9+</li>
+        </ul>
+
+        <br />
+        
+        <h3>If you like, short, share.</h3>
+
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_native_toolbox"></div>
+        
+        <br />
+
+        <hr />
+        <div id="title">
+          <span class="credits left">Project maintained by <a href="https://github.com/christianfortes" target="_blank" onclick="_gaq.push(['_trackEvent', 'Bibliografia', 'LinkPessoal', 'Link da pagina pessoal do github']);">christianfortes</a> | <a href="https://github.com/christianfortes/jformvalidate/">Github jformValidate.js</a></span>
+          <span class="credits right">Hosted on GitHub Pages</span>
+        </div>
+      </section>
+
+    </div>
+    
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/analitycs.js"></script>
+    <script src="../js/highlight.min.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5345944501f92b83" async="async"></script>
+    <script>
+
+        // Configuração highlight.js
+        hljs.configure({tabReplace: '    '}); // 4 spaces
+        hljs.initHighlightingOnLoad();
+
+        // Configuração addthis.js
+        var addthis_config = addthis_config||{};
+        addthis_config.data_track_addressbar = false;
+        var addthis_share = {
+           url: "https://christianfortes.github.io/jformvalidate"
+        }
+
+        // Javascript APP
+        $(document).ready(function() {
+            
+            $('[data-lang]').on('click', function(event) {
+                event.preventDefault();
+                $('[data-lang]').removeClass('active');
+                $(this).addClass('active');
+                textReplace($(this).data('lang'));
+            });
+
+            function textReplace(lang){
+                var langInd;
+
+                $('[data-lang-' + lang + ']').each(function(index, el) {
+                    langInd = 'data-lang-'+ lang;
+                    $(this).text($(this).attr(langInd));
+                });
+            }
+            
+        });
+
+    </script>
+  </body>
+  </html>
