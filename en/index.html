@@ -8,7 +8,7 @@
   <title>jformValidate.js - Simple javascript plugin for form validation, only with writing html</title>
 
   <meta property="og:locale" content="en_US">
-  <meta property="og:url" content="https://christianfortes.github.io/jformvalidate">
+  <meta property="og:url" content="https://christianfortes.github.io/jformvalidate/en/">
   <meta property="og:site_name" content="jformValidate.js">
   <meta property="og:title" content="jformValidate.js - Simple javascript plugin for form validation, only with writing html">
   <meta property="og:description" content="This plugin was developed considering existing complex plugins market, whenever we need to validate forms on the client-side, we face no plugins, but which in fact we choose?">
@@ -368,29 +368,8 @@ jformApp.validate.letters(elemento);
         var addthis_config = addthis_config||{};
         addthis_config.data_track_addressbar = false;
         var addthis_share = {
-           url: "https://christianfortes.github.io/jformvalidate"
+           url: "https://christianfortes.github.io/jformvalidate/en/"
         }
-
-        // Javascript APP
-        $(document).ready(function() {
-            
-            $('[data-lang]').on('click', function(event) {
-                event.preventDefault();
-                $('[data-lang]').removeClass('active');
-                $(this).addClass('active');
-                textReplace($(this).data('lang'));
-            });
-
-            function textReplace(lang){
-                var langInd;
-
-                $('[data-lang-' + lang + ']').each(function(index, el) {
-                    langInd = 'data-lang-'+ lang;
-                    $(this).text($(this).attr(langInd));
-                });
-            }
-            
-        });
 
     </script>
   </body>
