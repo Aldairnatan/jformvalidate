@@ -374,29 +374,8 @@ jformApp.validate.letters(elemento);
         var addthis_config = addthis_config||{};
         addthis_config.data_track_addressbar = false;
         var addthis_share = {
-           url: "https://christianfortes.github.io/jformvalidate"
+           url: "https://christianfortes.github.io/jformvalidate/pt/"
         }
-
-        // Javascript APP
-        $(document).ready(function() {
-            
-            $('[data-lang]').on('click', function(event) {
-                event.preventDefault();
-                $('[data-lang]').removeClass('active');
-                $(this).addClass('active');
-                textReplace($(this).data('lang'));
-            });
-
-            function textReplace(lang){
-                var langInd;
-
-                $('[data-lang-' + lang + ']').each(function(index, el) {
-                    langInd = 'data-lang-'+ lang;
-                    $(this).text($(this).attr(langInd));
-                });
-            }
-            
-        });
 
     </script>
   </body>
