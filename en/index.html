@@ -169,22 +169,22 @@ jformApp.init({
         <pre>
             <code class="html">
 &lt;!-- Only allowed letters --&gt;
-&lt;input type="text" data-jform="letters" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="letters" data-jform-message="message">
 
 &lt;!-- Only a valid zipcode format is allowed --&gt;
-&lt;input type="text" data-jform="cep" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="cep" data-jform-message="message">
 
 &lt;!-- Only numbers are allowed --&gt;
-&lt;input type="text" data-jform="number" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="number" data-jform-message="message">
 
 &lt;!-- 
 It is only allowed the extensions specified in the data attribute option,
 separated by '|', for example: {{extensão}} | {{extensão}}
 --&gt;
-&lt;input type="file" data-jform="extension" data-jform-option="xls|csv" data-jform-message="Mensagem">
+&lt;input type="file" data-jform="extension" data-jform-option="xls|csv" data-jform-message="message">
 
 &lt;!-- Only a valid URL format is allowed --&gt;
-&lt;input type="text" data-jform="url" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="url" data-jform-message="message">
 
 &lt;!-- Field select mandatory, and the value of different empty --&gt;
 &lt;select data-jform>
@@ -216,19 +216,19 @@ Required item
 &lt;/div>
 
 &lt;!-- Only a valid email format is allowed --&gt;
-&lt;input type="text" data-jform="email" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="email" data-jform-message="message">
 
 &lt;!-- Only valid cnpj numeration is allowed --&gt;
-&lt;input type="text" data-jform="cnpj" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="cnpj" data-jform-message="message">
 
 &lt;!-- Only valid cpf numeration is allowed --&gt;
-&lt;input type="text" data-jform="cpf" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="cpf" data-jform-message="message">
 
 &lt;!-- 
 By setting the date option you will be setting the minimum character
 to be entered 
 --&gt;
-&lt;input type="text" data-jform="minlength" data-jform-option="5" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="minlength" data-jform-option="5" data-jform-message="message">
 
 &lt;!-- It can not be empty, mandatory field --&gt;
 &lt;input type="text" data-jform>
@@ -279,7 +279,7 @@ function myFunction(element){
 By choosing to create a custom validation, you must specify a date function method
 which will have its validation without informing '( )', should only be placed the name
 --&gt;
-&lt;input type="text" data-jform="addmethod" data-jform-method="myFunction" data-jform-message="Mensagem">
+&lt;input type="text" data-jform="addmethod" data-jform-method="myFunction" data-jform-message="message">
             </code>
         </pre>
         
@@ -292,28 +292,28 @@ which will have its validation without informing '( )', should only be placed th
         <pre>
             <code class="js">
 // The field can not be empty
-jformApp.validate.empty(elemento);
+jformApp.validate.empty(element);
 
 // The value entered must be a valid cnpj
-jformApp.validate.cnpj(elemento);
+jformApp.validate.cnpj(element);
 
 // The value entered must be a valid cpf
-jformApp.validate.cpf(elemento);
+jformApp.validate.cpf(element);
 
 // The value entered must be a valid email address
-jformApp.validate.email(elemento);
+jformApp.validate.email(element);
 
 // The value entered must be a valid email address
-jformApp.validate.url(elemento);
+jformApp.validate.url(element);
 
 // The value entered must be a valid zipcode
-jformApp.validate.cep(elemento);
+jformApp.validate.cep(element);
 
 // The value entered must be only numbers
-jformApp.validate.number(elemento);
+jformApp.validate.number(element);
 
 // The value should be informed only letters
-jformApp.validate.letters(elemento);
+jformApp.validate.letters(element);
             </code>
         </pre>
 
