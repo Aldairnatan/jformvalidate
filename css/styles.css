@@ -780,79 +780,6 @@ section #title .credits.right {
   float: right;
 }
 
-@media print, screen and (max-width: 720px) {
-
-  section .link-top{
-    width: 100%;
-    line-height: 21px;
-    margin-bottom: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  section .link-top a {
-    overflow: hidden;
-    padding: 8px 0;
-    text-align: center;
-    width: 100%;
-    display: inline-block;
-  }
-
-  #title .credits {
-    display: block;
-    width: 100%;
-    line-height: 30px;
-    text-align: center;
-  }
-  #title .credits .left {
-    float: none;
-    display: block;
-  }
-  #title .credits .right {
-    float: none;
-    display: block;
-  }
-}
-@media print, screen and (max-width: 480px) {
-
-  #header {
-    margin-top: -20px;
-  }
-
-  nav {
-    display: none;
-  }
-}
-
-#media{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  background: #333333;
-  padding: 2px 10px;
-}
-
-#media strong{
-  font-weight: 300;
-}
-
-@media print, screen and (max-width: 460px){
-
-  section #title img{
-    float: none;
-    margin-right: 0;
-  }
-
-  section #title{
-    text-align: center;
-  }
-
-  section #title div {
-    width: 100%;
-  }
-}
-
 .table{
   display: table;
   list-style: none;
@@ -912,4 +839,81 @@ section #title .credits.right {
 
 .lang li a.active{
   text-decoration: underline;
+}
+
+#media{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: #333333;
+  padding: 2px 10px;
+}
+
+#media strong{
+  font-weight: 300;
+}
+
+@media print, screen and (max-width: 720px) {
+    
+ .lang{
+  text-align: left;
+ }
+
+  section .link-top{
+    width: 100%;
+    line-height: 21px;
+    margin-bottom: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  section .link-top a {
+    overflow: hidden;
+    padding: 8px 0;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+  }
+
+  #title .credits {
+    display: block;
+    width: 100%;
+    line-height: 30px;
+    text-align: center;
+  }
+  #title .credits .left {
+    float: none;
+    display: block;
+  }
+  #title .credits .right {
+    float: none;
+    display: block;
+  }
+}
+@media print, screen and (max-width: 480px) {
+
+  #header {
+    margin-top: -20px;
+  }
+
+  nav {
+    display: none;
+  }
+}
+
+@media print, screen and (max-width: 460px){
+
+  section #title img{
+    float: none;
+    margin-right: 0;
+  }
+
+  section #title{
+    text-align: center;
+  }
+
+  section #title div {
+    width: 100%;
+  }
 }
