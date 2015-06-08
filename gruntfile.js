@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
 			}, 
 			dist: { 
 				files: { 
-					'dist/jform.validate-1.0.0.min.js': [ 'src/jform.validate-1.0.0.js' ] 
+					'dist/jform.validate-1.0.1.min.js': [ 'src/*' ] 
 				} 
 			}
 		},

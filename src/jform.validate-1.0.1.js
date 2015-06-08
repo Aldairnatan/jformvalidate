@@ -42,6 +42,9 @@ var jformApp = (function() {
 					type: "."	
 				}
 			}
+		},
+		class: {
+			stepActive: "active"
 		}
 	};
 
@@ -53,21 +56,126 @@ var jformApp = (function() {
 			}else{ console.error(options.message.text.errorjquery); }
 		},
 		submitExecute: function(){
-			$("[data-jform-submit]").on('click', function(e) {
-				if ($(this).data("jform-submit")){
+			// Declaration variables the scope
+			var	dataNameStep,
+				dataFormName,
+				stepMap = [],
+				clickCount = 0,
+				prevElement,
+				stepCount,
+				jformStep,
+				verifyForm,
+				optionValidate,
+				dataFormSubmit,
+				cacheOptions = {};
+
+			// Defined values for variables
+			dataNameStep = '[data-jform-step]';
+			dataFormSubmit = '[data-jform-submit]';
+			dataFormName = 'form';
+			verifyForm = $(dataFormName).find(dataNameStep);
+
+			if($(verifyForm).length >= 1){
+
+				$(verifyForm).first().addClass(options.class.stepActive);
+				
+				optionValidate = $(dataFormName).find(dataFormSubmit).data('jform-submit');
+
+				fnSubmitForm();
+
+				$("[data-jform-step-next]").on('click', function(e) {
 					e.preventDefault();
-					if (jQuery.inArray(false, jformApp.submitValidate()) == -1){
-						$(this).closest('form').submit();
+
+					cacheOptions = new Object;
+
+					prevElement = $(this).closest(dataNameStep);
+					stepCount = prevElement.data('jform-step');
+
+					var nameClass = 'jformStep-' + stepCount;
+					prevElement.addClass(nameClass);
+					var dataAttribute = '.' + nameClass;
+
+					jformStep = $(this)[0].dataset.jformStepNext;
+					
+					cacheOptions = {
+						'this': $(this),
+						'dataNameStep': dataNameStep,
+						'jformStep': jformStep,
+						'clickCount': clickCount
+					};
+
+					if (optionValidate){
+						if (jQuery.inArray(false, jformApp.submitValidate(dataAttribute)) == -1){
+							fnOptionValidate(cacheOptions);
+						}
+					}else{
+						fnOptionValidate(cacheOptions);
 					}
+				});
+
+				$("[data-jform-step-prev]").on('click', function(e) {
+					e.preventDefault();
+
+					prevElement = $(this).closest(dataNameStep);
+					stepCount = prevElement.data('jform-step');
+
+					jQuery.grep(stepMap, function(n, i) {
+						if (n == stepCount){
+							var positionPrevStep = i - 1;
+							jformStep = stepMap[positionPrevStep];
+						}
+					});
+
+					clickCount = 2;
+					fnHideShowSteps(dataNameStep, jformStep, clickCount);
+				});
+
+			}else{
+				fnSubmitForm();
+			}
+
+			function fnOptionValidate(cacheOptions){
+				if ($(cacheOptions.this)[0].dataset.jformStepNext != "submit"){	
+					fnHideShowSteps(cacheOptions.dataNameStep, cacheOptions.jformStep, cacheOptions.clickCount);
+					clickCount = 1;
+				}else{
+					$(dataFormName).submit();
 				}
-			});
+			}
+
+			function fnHideShowSteps(dataNameStep, jformStep, clickCount){
+				$(dataNameStep).each(function(index, el) {
+					if (clickCount < 1){
+						stepMap.push($(this).data('jform-step'));
+					}
+
+					if($(this).data('jform-step') == jformStep){
+						$(this).addClass(options.class.stepActive);
+					}else{
+						$(this).removeClass(options.class.stepActive);
+					}
+				});
+			}
+
+			function fnSubmitForm(){
+				$("[data-jform-submit]").on('click', function(e) {
+					if ($(this).data("jform-submit")){
+						e.preventDefault();
+						if (jQuery.inArray(false, jformApp.submitValidate('')) == -1){
+							$(this).closest(dataFormName).submit();
+						}
+					}
+				});
+			}
 		},
-		submitValidate: function(){
+		submitValidate: function(dataAttribute){
+
 			var formObject = {}, 
 				objTemp = [],
 				returnTemp,
 				returnMessage;
-			$('[data-jform]').each(function(index, el){
+
+			$('[data-jform]', dataAttribute).each(function(index, el){
 
 				returnTemp = jformApp.validate.empty($(this));
 
