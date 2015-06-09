@@ -2,16 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>jFormValidate / JS</title>
-	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+	<title>jFormValidate / Form / JS</title>
+	<link rel="stylesheet" href="css/demo.css">
 
 	<style>
-		
-		label{
-			margin-bottom: 10px;
-		}
-		
-		label, span,
 		.jform-msg-error,
 		.jform-elem-error{
 			display: block;
@@ -28,7 +22,15 @@
 </head>
 <body>
 
-<form action="?" method="GET">
+<ul class="menu">
+	<li><strong>Menu:</strong></li>
+	<li><a href="index.html">Formulário normal</a></li>
+	<li><a href="steps.html">Formulário em steps</a></li>
+</ul>
+
+<form action="#" method="GET">
+	
+	<h1>Formulário normal (Validação habilitada)</h1>
 
 	<label>
 		<span>CEP:</span>
@@ -61,6 +63,8 @@
 			<option value="test">teste</option>
 		</select>
 	</label>
+	
+	<br>
 
 	<div data-jform="radio">
 		<label>
@@ -83,7 +87,9 @@
 			Valor 04
 		</label>
 	</div>
-	
+
+	<br>
+
 	<div data-jform="checkbox" data-jform-option="2">
 		<input type="checkbox" name="vehicle" value="0">Bicicleta<br>
 		<input type="checkbox" name="vehicle" value="1">Carro<br>
@@ -93,6 +99,8 @@
 		<input type="checkbox" name="vehicle" value="5">Cavalo	
 	</div>
 	
+	<br>
+
 	<label>
 		<span>Email:</span>
 		<input type="text" data-jform="email" data-jform-message="Digite um email válido">
@@ -107,7 +115,7 @@
 		<span>CPF:</span>
 		<input type="text" data-jform="cpf" data-jform-message="Digite um cpf válido">
 	</label>
-	
+
 	<label>
 		<span>Minímo de caracteres:</span>
 		<input type="text" data-jform="minlength" data-jform-option="5" data-jform-message="Você deve digitar pelo menos 5 caracteres">
@@ -126,9 +134,9 @@
 	<button type="submit" data-jform-submit="true">Validar</button>
 </form>
 
-<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../js/jform.validate-1.0.0.min.js"></script>
-<script type="text/javascript" src="../js/jform.additional.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../bower_components/jformvalidate/dist/jform.validate-1.0.1.min.js"></script>
+<script type="text/javascript" src="../bower_components/jformvalidate/dist/jform.additional.js"></script>
 <script> jformApp.init(); </script>
 </body>
 </html>

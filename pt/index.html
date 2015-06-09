@@ -54,7 +54,7 @@
         <div style="clear:both;"></div>
         <hr />
         
-        <h3>jformValidate.js v1.0</h3>
+        <h3>jformValidate.js v1.0.1</h3>
         <p>
           Este plugin foi desenvolvido pensando em bibliotecas complexas existentes em mercado, sempre quando precisamos validar formulários no client-side, nos deparamos com n plugins, mas qual de fato vamos escolher?
         </p>
@@ -105,7 +105,7 @@ bower install jformvalidate
 
         &lt;!-- Corpo de código... --&gt;
 
-		&lt;script src="{{PATH}}/jform.validate-1.0.0.js">&lt;/script>
+		&lt;script src="{{PATH}}/jform.validate-*.js">&lt;/script>
         &lt;script>
             // Inicializando a biblioteca
             jformApp.init();
@@ -155,6 +155,10 @@ jformApp.init({
                 type: '.' 
             }
         }
+    },
+    // Definição do nome da classe que será adicionado quando o form for em formato de step.
+    class: {
+        stepActive: "active"
     }
 });
             </code>
@@ -245,6 +249,97 @@ caso queira testar o envio do formulário sem ter que ficar colocando valores ce
 &lt;button type="submit" data-jform-submit="true">Cadastrar&lt;/button>
             </code>
         </pre>
+        
+        <h3>Usando em forma de steps</h3>
+
+        <p>O plugin pode ser usado em forma de steps para a sua aplicação, sendo validado etapas por etapas, segue abaixo como usar dessa forma.</p>
+
+<pre>
+    <code class="html">
+&lt;style>
+    .step{
+        display: none;
+    }
+
+    [data-jform-step].active{
+        display: block;
+    }
+&lt;/style>
+
+&lt;form action="#" method="GET">
+    
+    &lt;h1>Formulário em steps (Validação habilitada)&lt;/h1>
+
+    &lt;div class="step" data-jform-step="01">
+        &lt;h4>Primeiro passo&lt;/h4>
+        &lt;label>
+            &lt;span>Email:&lt;/span>
+            &lt;input type="text" data-jform="email" data-jform-message="Digite um email válido">
+        &lt;/label>
+
+        &lt;label>
+            &lt;span>CNPJ:&lt;/span>
+            &lt;input type="text" data-jform="cnpj" data-jform-message="Digite um cnpj válido">
+        &lt;/label>
+
+        &lt;button data-jform-step-next="02">Próximo&lt;/button>                              
+    &lt;/div>
+
+
+    &lt;div class="step" data-jform-step="02">
+        &lt;h4>Segundo passo&lt;/h4>
+        &lt;label>
+            &lt;span>CPF:&lt;/span>
+            &lt;input type="text" data-jform="cpf" data-jform-message="Digite um cpf válido">
+        &lt;/label>
+        
+        &lt;label>
+            &lt;span>Minímo de caracteres:&lt;/span>
+            &lt;input type="text" data-jform="minlength" data-jform-option="5" data-jform-message="Você deve digitar pelo menos 5 caracteres">
+        &lt;/label>
+
+        &lt;button data-jform-step-prev>Anterior&lt;/button>
+        &lt;button data-jform-step-next="03">Próximo&lt;/button>  
+    &lt;/div>
+
+
+    &lt;div class="step" data-jform-step="03">
+        &lt;h4>Terceiro passo&lt;/h4>
+        
+        &lt;label>
+            &lt;span>Letras:&lt;/span>
+            &lt;input type="text" data-jform="letters" data-jform-message="Este campo só permite letras">
+        &lt;/label>
+
+        &lt;label>
+            &lt;span>Números:&lt;/span>
+            &lt;input type="text" data-jform="number" data-jform-message="Este campo só permite números">
+        &lt;/label>
+        
+        &lt;button data-jform-step-prev>Anterior&lt;/button>
+        &lt;button type="submit" data-jform-submit="true">Finalizar&lt;/button>               
+    &lt;/div>
+&lt;/form>
+    </code>
+</pre>
+        
+<pre>
+    <code class="html">
+
+&lt;!-- Na div que terá o seu conteúdo, você deve adicionar o data atributo "data-jform-step", 
+especificando dentro dele o número ou nome de ordem desse painel. A classe css "step",
+você poderá alterar para o nome que quiser -->
+&lt;div class="step" data-jform-step="02">
+
+&lt;!-- Dentro do seu painel que será seu step, no final adicione um botão ou link com o data atributo "data-jform-step-next",
+especificando o número do seu próximo step, que foi especificado no atributo "data-jform-step" conforme exemplo acima. -->
+&lt;button data-jform-step-next="02">Próximo&lt;/button>
+
+&lt;!-- Para voltar ao step anterior, basta adicionar um botão ou link com o atributo "data-jform-step-prev", 
+não é nescessário especificar nenhum valor, por padrão ao clicar, ele voltará ao step anterior -->
+&lt;button data-jform-step-prev>Anterior&lt;/button>
+    </code>
+</pre>
 
         <h3>Adicionando métodos customizados</h3>
         
@@ -254,7 +349,7 @@ caso queira testar o envio do formulário sem ter que ficar colocando valores ce
         
         <pre>
             <code class="html">
-&lt;script src="{{PATH}}/jform.validate-1.0.0.js">&lt;/script>
+&lt;script src="{{PATH}}/jform.validate-*.js">&lt;/script>
 &lt;script src="{{PATH}}/jform.additional.js">&lt;/script>
             </code>
         </pre>
@@ -324,11 +419,11 @@ jformApp.validate.letters(elemento);
         </pre>
 
         <br />
-
+        
         <h3>Veja a demonstração de implementação</h3>
 
         <p>
-            <a href="demo/index.html" target="_BLANK" onclick="_gaq.push(['_trackEvent', 'Biblioteca', 'Demonstração', 'Clique em demonstração do plugin']);">Acesse aqui</a> e veja o plugin em funcionamento.
+            <a href="../demo/index.html" target="_BLANK" onclick="_gaq.push(['_trackEvent', 'Biblioteca', 'Demonstração', 'Clique em demonstração do plugin']);">Acesse aqui</a> e veja o plugin em funcionamento.
         </p>
         
         <br />
@@ -360,7 +455,7 @@ jformApp.validate.letters(elemento);
 
     </div>
     
-    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../demo/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/analitycs.js"></script>
     <script src="../js/highlight.min.js"></script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5345944501f92b83" async="async"></script>
