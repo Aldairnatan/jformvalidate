@@ -75,12 +75,12 @@ var jformApp = (function() {
 			dataFormName = 'form';
 			verifyForm = $(dataFormName).find(dataNameStep);
 
+			optionValidate = ($(dataFormName).find(dataFormSubmit)[0].dataset.jformSubmit == 'true') ? true : false;
+			
 			if($(verifyForm).length >= 1){
 
 				$(verifyForm).first().addClass(options.class.stepActive);
 				
-				optionValidate = $(dataFormName).find(dataFormSubmit).data('jform-submit');
-
 				fnSubmitForm();
 
 				$("[data-jform-step-next]").on('click', function(e) {
@@ -89,7 +89,7 @@ var jformApp = (function() {
 					cacheOptions = new Object;
 
 					prevElement = $(this).closest(dataNameStep);
-					stepCount = prevElement.data('jform-step');
+					stepCount = prevElement[0].dataset.jformStep;
 
 					var nameClass = 'jformStep-' + stepCount;
 					prevElement.addClass(nameClass);
@@ -117,7 +117,7 @@ var jformApp = (function() {
 					e.preventDefault();
 
 					prevElement = $(this).closest(dataNameStep);
-					stepCount = prevElement.data('jform-step');
+					stepCount = prevElement[0].dataset.jformStep;
 
 					jQuery.grep(stepMap, function(n, i) {
 						if (n == stepCount){
@@ -146,10 +146,10 @@ var jformApp = (function() {
 			function fnHideShowSteps(dataNameStep, jformStep, clickCount){
 				$(dataNameStep).each(function(index, el) {
 					if (clickCount < 1){
-						stepMap.push($(this).data('jform-step'));
+						stepMap.push($(this)[0].dataset.jformStep);
 					}
 
-					if($(this).data('jform-step') == jformStep){
+					if($(this)[0].dataset.jformStep == jformStep){
 						$(this).addClass(options.class.stepActive);
 					}else{
 						$(this).removeClass(options.class.stepActive);
@@ -158,9 +158,10 @@ var jformApp = (function() {
 			}
 
 			function fnSubmitForm(){
-				$("[data-jform-submit]").on('click', function(e) {
-					if ($(this).data("jform-submit")){
+				$(dataFormSubmit).on('click', function(e) {
+					if (optionValidate){
 						e.preventDefault();
+						
 						if (jQuery.inArray(false, jformApp.submitValidate('')) == -1){
 							$(this).closest(dataFormName).submit();
 						}
