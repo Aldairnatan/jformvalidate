@@ -257,7 +257,7 @@ caso queira testar o envio do formulário sem ter que ficar colocando valores ce
 <pre>
     <code class="html">
 &lt;style>
-    .step{
+    [data-jform-step]{
         display: none;
     }
 
@@ -270,7 +270,7 @@ caso queira testar o envio do formulário sem ter que ficar colocando valores ce
     
     &lt;h1>Formulário em steps (Validação habilitada)&lt;/h1>
 
-    &lt;div class="step" data-jform-step="01">
+    &lt;div data-jform-step="01">
         &lt;h4>Primeiro passo&lt;/h4>
         &lt;label>
             &lt;span>Email:&lt;/span>
@@ -286,7 +286,7 @@ caso queira testar o envio do formulário sem ter que ficar colocando valores ce
     &lt;/div>
 
 
-    &lt;div class="step" data-jform-step="02">
+    &lt;div data-jform-step="02">
         &lt;h4>Segundo passo&lt;/h4>
         &lt;label>
             &lt;span>CPF:&lt;/span>
@@ -303,7 +303,7 @@ caso queira testar o envio do formulário sem ter que ficar colocando valores ce
     &lt;/div>
 
 
-    &lt;div class="step" data-jform-step="03">
+    &lt;div data-jform-step="03">
         &lt;h4>Terceiro passo&lt;/h4>
         
         &lt;label>
@@ -331,7 +331,7 @@ caso queira testar o envio do formulário sem ter que ficar colocando valores ce
 &lt;!-- Na div que terá o seu conteúdo, você deve adicionar o data atributo "data-jform-step", 
 especificando dentro dele o número ou nome de ordem desse painel. A classe css "step",
 você poderá alterar para o nome que quiser -->
-&lt;div class="step" data-jform-step="02">
+&lt;div data-jform-step="02">
 
 &lt;!-- Dentro do seu painel que será seu step, no final adicione um botão ou link com o data atributo "data-jform-step-next",
 especificando o número do seu próximo step, que foi especificado no atributo "data-jform-step" conforme exemplo acima. -->
