@@ -2,10 +2,23 @@
 
 module.exports = function( grunt ) { 
 	grunt.initConfig({ 
+
+		watch: {
+		  scripts: {
+		    files: ['src/*.js'],
+		    tasks: ['uglify'],
+		    options: {
+		      spawn: false,
+		    },
+		  },
+		},
+
 		uglify: { 
-			options: { 
+			options: {
 				mangle: true,
-				beautify: false
+				beautify: false,
+				compress: true,
+				preserveComments: true
 			}, 
 			dist: { 
 				files: { 
@@ -15,5 +28,6 @@ module.exports = function( grunt ) {
 		},
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.registerTask( 'default', [ 'uglify' ] ); };
+	grunt.registerTask( 'default', [ 'watch' ] ); };

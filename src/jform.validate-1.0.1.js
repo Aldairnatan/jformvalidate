@@ -1,16 +1,17 @@
 /*!
- * jFormValidate v1.0.0
+ * jFormValidate v1.0.1
  *
  * Copyright (c) 2015/04 Christian Fortes
  * Released under the MIT license
  * Documentation: http://christianfortes.github.io/jformvalidate
+ * Github: https://github.com/christianfortes/jformvalidate
  * Based on jQuery.validate
  * 
  */
 
 var jformApp = (function() {
 	'use strict';
-
+	
 	var options = {
 		message: {
 			text: {
@@ -56,7 +57,6 @@ var jformApp = (function() {
 			}else{ console.error(options.message.text.errorjquery); }
 		},
 		submitExecute: function(){
-			// Declaration variables the scope
 			var	dataNameStep,
 				dataFormName,
 				stepMap = [],
@@ -69,7 +69,6 @@ var jformApp = (function() {
 				dataFormSubmit,
 				cacheOptions = {};
 
-			// Defined values for variables
 			dataNameStep = '[data-jform-step]';
 			dataFormSubmit = '[data-jform-submit]';
 			dataFormName = 'form';

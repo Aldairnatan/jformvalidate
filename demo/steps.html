@@ -4,23 +4,10 @@
 	<meta charset="UTF-8">
 	<title>jFormValidate / Steps / JS</title>
 	<link rel="stylesheet" href="css/demo.css">
-
+	<link rel="stylesheet" href="../dist/jform.validate.css">
+	
 	<style>
-		
-		.jform-msg-error,
-		.jform-elem-error{
-			display: block;
-		}
-
-		.jform-msg-error{
-			color: #FF0000;
-		}
-
-		.jform-elem-error{
-			border: 1px solid #FF0000;
-		}
-
-		.step{
+		[data-jform-step]{
 			display: none;
 		}
 
@@ -39,9 +26,9 @@
 
 <form action="#" method="GET">
 	
-	<h1>Formulário em steps (Validação habilitada)</h1>
+	<h1>Formulário em steps</h1>
 
-	<div class="step" data-jform-step="01">
+	<div data-jform-step="01">
 		<h4>Primeiro passo</h4>
 		<label>
 			<span>Email:</span>
@@ -57,7 +44,7 @@
 	</div>
 
 
-	<div class="step" data-jform-step="02">
+	<div data-jform-step="02">
 		<h4>Segundo passo</h4>
 		<label>
 			<span>CPF:</span>
@@ -74,7 +61,7 @@
 	</div>
 
 
-	<div class="step" data-jform-step="03">
+	<div data-jform-step="03">
 		<h4>Terceiro passo</h4>
 		
 		<label>
