@@ -1,0 +1,33 @@
+{
+  "name": "jformValidate",
+  "authors": [
+    "Christian Fortes <giovanirushl@gmail.com>"
+  ],
+  "description": "Simples módulo para validações em formulários",
+  "keywords": [
+    "validate",
+    "jqueryform",
+    "jformValidate",
+    "form",
+    "javascript"
+  ],
+  "license": "MIT",
+  "homepage": "christianfortes.github.io/jformvalidate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1142c9cea3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1142c9cea34afe63d38a5a77d60f414a7159b0df"
+  },
+  "_source": "git://github.com/christianfortes/jformvalidate.git",
+  "_target": "*",
+  "_originalSource": "jformvalidate",
+  "_direct": true
+}
